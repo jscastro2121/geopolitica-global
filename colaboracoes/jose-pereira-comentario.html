@@ -1,3 +1,52 @@
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <h1>Geopolítica Global</h1>
+      <p class="sub">Análises sobre poder, economia e civilização contemporânea</p>
+    </div>
+
+    <aside class="autor-head">
+      <div class="autor-card">
+        <div class="autor-foto"></div>
+        <div>
+          <p class="autor-nome">Santana</p>
+          <p class="autor-bio">Escritor e analista político. Pesquisa civilização, poder, economia e espiritualidade.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+<!-- menu deve estar DENTRO do header -->
+  <nav class="menu">
+  <ul>
+    <li><a href="/index.html">Início</a></li>
+    <li><a href="/artigos/index.html">Artigos</a></li>
+    <li><a href="/sobre.html">Sobre</a></li>
+    <li><a href="/contato.html">Contato</a></li>
+  </ul>
+</nav>
+
+<script>
+  // Marca automaticamente o item ativo no menu
+  document.addEventListener("DOMContentLoaded", function() {
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll(".menu a");
+
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+      // Marca ativo se o caminho atual contém o link (parcial)
+      if (currentPath.endsWith(href) || (href !== "/" && currentPath.includes(href))) {
+        link.classList.add("ativo");
+      } else {
+        link.classList.remove("ativo");
+      }
+    });
+  });
+</script>
+
+</header>
+
+<!-- HEADER-START -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -50,3 +99,35 @@
 
 </body>
 </html>
+
+<!-- FOOTER-END -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-col esquerda">
+      <h3>Geopolítica Global</h3>
+      <p>Análises sobre poder, economia e civilização contemporânea.</p>
+      <p class="assinatura">© 2025 Santana — Todos os direitos reservados.</p>
+    </div>
+
+    <div class="footer-col meio">
+      <h4>Conecte-se</h4>
+      <ul class="footer-links">
+        <li>📰 <a href="https://santana.substack.com" target="_blank">Substack</a></li>
+        <li>📘 <a href="https://facebook.com/seuperfil" target="_blank">Facebook</a></li>
+        <li>🐦 <a href="https://x.com/seuperfil" target="_blank">X / Twitter</a></li>
+        <li>📧 <a href="mailto:seunome@proton.me" target="_blank">Proton Mail</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col direita">
+      <h4>Publicações Recentes</h4>
+      <ul class="footer-artigos">
+        <li><a href="/artigos/colapso-matematico-china.html">O Colapso Matemático da China</a></li>
+        <li><a href="/artigos/choque-petroleo.html">Do Choque do Petróleo à Financeirização Global</a></li>
+        <li><a href="/artigos/Apatheid Brasileiro.html">O Apartheid Social Brasileiro e a Ditadura Financeira</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia Editorial — Geopolítica Global</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/artigo.css" />
+  <link rel="stylesheet" href="css/responsivo.css" />
+</head>
+<body>
+
+  <!-- Cabeçalho fixo -->
+  <!--#include virtual="includes/header.html" -->
+  <script src="/js/ativo.js"></script>
+
+  <main class="duas-colunas">
+    <article class="col-esquerda">
+      <div class="banner-capa">
+        <img src="imagens/capa/geopolitica-global.png" alt="Guia Editorial Geopolítica Global">
+      </div>
+
+      <section class="artigo">
+        <h2>Guia Editorial — Geopolítica Global</h2>
+        <h3>Fluxo completo de publicação automatizada</h3>
+        <p class="meta">Atualizado em 26 de outubro de 2025</p>
+        <hr>
+
+        <p>Este guia apresenta o fluxo editorial do projeto <strong>Geopolítica Global</strong> — da escrita do texto até a publicação automatizada no site. Ele documenta todas as etapas do sistema que integra conteúdo, design e automação via Python.</p>
+
+        <h3>1. Estrutura de diretórios</h3>
+        <pre><code>geopolitica-global/
+¦
++-- artigos/             ? artigos gerados pelo script
++-- colaboracoes/        ? colaborações de leitores
++-- textos/              ? arquivos .txt originais
++-- includes/            ? header.html e footer.html
++-- css/                 ? main.css, artigo.css, responsivo.css
++-- js/                  ? ativo.js e menu.js
++-- imagens/             ? capas e ícones
++-- index.html           ? página inicial (atualizada automaticamente)
++-- gerar_artigo.py      ? script gerador
+</code></pre>
+
+        <h3>2. Escrita do texto base</h3>
+        <p>Os artigos e colaborações devem ser escritos em <strong>texto puro (.txt)</strong>, com parágrafos separados por linhas em branco. O script transforma automaticamente esse texto em HTML formatado.</p>
+
+        <blockquote>
+          Dica: evite qualquer tag HTML. Use apenas o texto e, se quiser destacar algo, adicione uma citação com o símbolo “&gt;”.
+        </blockquote>
+
+        <pre><code>### 1. O Custo da Mentira
+
+&gt; A verdade tornou-se cara demais.
+
+Enquanto se discute moralidade, a economia segue guiada pela conveniência.
+</code></pre>
+
+        <h3>3. Geração automática do HTML</h3>
+        <p>No terminal, estando na raiz do projeto, execute:</p>
+
+        <pre><code>python gerar_artigo.py</code></pre>
+
+        <p>Responda às perguntas indicadas:</p>
+
+        <pre><code>Tipo (artigo/colaboracao): artigo
+Título: A Hipocrisia como Sistema
+Subtítulo: Reflexão sobre a dissimulação na vida pública brasileira
+Autor: Santana
+Data (ex: 26 de outubro de 2025): 26 de outubro de 2025
+Nome do arquivo (sem espaços, ex: hipocrisia): hipocrisia
+Caminho do texto base (.txt): textos/hipocrisia.txt
+</code></pre>
+
+        <p>O script criará o arquivo HTML, copiará o texto original para <code>/textos/</code> e atualizará automaticamente o <code>index.html</code>, sem duplicar links já existentes.</p>
+
+        <h3>4. Estrutura do HTML gerado</h3>
+        <p>O arquivo resultante segue o padrão dos artigos principais:</p>
+
+        <pre><code>&lt;!--#include virtual="includes/header.html" --&gt;
+&lt;script src="/js/ativo.js"&gt;&lt;/script&gt;
+
+&lt;main class="duas-colunas"&gt;
+  &lt;article class="col-esquerda"&gt;
+    &lt;section class="artigo"&gt;
+      &lt;h2&gt;[TÍTULO]&lt;/h2&gt;
+      &lt;h3&gt;[SUBTÍTULO]&lt;/h3&gt;
+      &lt;p class="meta"&gt;Publicado em [DATA]&lt;/p&gt;
+      &lt;hr&gt;
+      [CONTEÚDO]
+    &lt;/section&gt;
+  &lt;/article&gt;
+  [ASIDE AUTOMÁTICO]
+&lt;/main&gt;
+</code></pre>
+
+        <h3>5. Atualização do index.html</h3>
+        <p>O sistema insere automaticamente o novo artigo na seção correta:</p>
+
+        <pre><code>&lt;article class="card-artigo"&gt;
+  &lt;h3&gt;&lt;a href="/artigos/hipocrisia.html"&gt;A Hipocrisia como Sistema&lt;/a&gt;&lt;/h3&gt;
+  &lt;p&gt;Reflexão sobre a dissimulação na vida pública brasileira.&lt;/p&gt;
+&lt;/article&gt;
+</code></pre>
+
+        <p>Se o link já existir, o script detecta e evita duplicação.</p>
+
+        <h3>6. Boas práticas editoriais</h3>
+        <ul>
+          <li>Use nomes de arquivo em minúsculas e sem espaços (<code>apartheid-financeiro.txt</code>).</li>
+          <li>Salve os arquivos em <strong>UTF-8</strong> para evitar problemas com acentuação.</li>
+          <li>Use apenas linhas em branco para separar parágrafos.</li>
+          <li>Evite duplo “.txt.txt” no nome do arquivo.</li>
+        </ul>
+
+        <h3>7. Revisões e ajustes</h3>
+        <p>Para editar um artigo:</p>
+        <ol>
+          <li>Edite o arquivo original em <code>/textos/</code>;</li>
+          <li>Execute novamente o script com os mesmos parâmetros;</li>
+          <li>O HTML será atualizado sem criar duplicatas no <code>index.html</code>.</li>
+        </ol>
+
+        <h3>8. Futuras expansões</h3>
+        <p>O sistema permite integração futura com:</p>
+        <ul>
+          <li>remoção automática de artigos via terminal;</li>
+          <li>geração de índice cronológico;</li>
+          <li>exportação para PDF ou Substack;</li>
+          <li>capas automáticas com imagem padrão.</li>
+        </ul>
+
+        <h3>Conclusão</h3>
+        <p>Com esse fluxo, o projeto <strong>Geopolítica Global</strong> atinge autonomia editorial plena: você escreve em texto puro, executa o gerador e publica com consistência visual e técnica.</p>
+      </section>
+    </article>
+
+    <aside class="col-direita">
+      <div class="box">
+        <h3>Sobre o Projeto</h3>
+        <p>O <strong>Geopolítica Global</strong> é uma publicação independente dedicada à análise das forças políticas e econômicas que moldam o século XXI.</p>
+      </div>
+
+      <div class="box">
+        <h3>Contato Editorial</h3>
+        <p>Para dúvidas, colaborações ou sugestões, escreva para <a href="mailto:seunome@proton.me">seunome@proton.me</a>.</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Rodapé fixo -->
+  <!--#include virtual="includes/footer.html" -->
+  <script src="/js/ativo.js"></script>
+  <script src="/js/menu.js"></script>
+</body>
+</html>

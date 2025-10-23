@@ -1,0 +1,18 @@
+/* EMPILHA SOMENTE ABAIXO DE 900px */
+@media (max-width: 900px) {
+  .header-inner {
+    grid-template-columns: 1fr; /* autor vai para baixo no header */
+  }
+  .duas-colunas {
+    grid-template-columns: 1fr;
+  }
+  .col-direita {
+    position: relative;
+    top: 0;
+  }
+  .banner-capa img {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

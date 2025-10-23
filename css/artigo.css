@@ -1,0 +1,480 @@
+/* =========================================================
+   GEOPOLÍTICA GLOBAL — artigo.css
+   ---------------------------------------------------------
+   Estrutura:
+   1. Layout de duas colunas
+   2. Coluna esquerda (artigo principal)
+   3. Coluna direita (autor e artigos relacionados)
+   4. Estilos tipográficos do texto
+   5. Banner e elementos visuais
+   ========================================================= */
+
+
+/* ===================== 1. LAYOUT GERAL ===================== */
+
+.duas-colunas {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;   /* esquerda maior */
+  gap: 28px;
+}
+
+/* evita que o conteúdo encoste nas bordas */
+.col-esquerda, .col-direita {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+/* ===================== 2. COLUNA ESQUERDA ===================== */
+
+.col-esquerda {
+  padding: 32px 40px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.col-esquerda h2 {
+  font-size: 26px;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.col-esquerda h3 {
+  font-size: 20px;
+  color: #222;
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.col-esquerda p {
+  margin-bottom: 1.2em;
+  text-align: justify;
+  line-height: 1.8;
+  color: #333;
+}
+
+.col-esquerda .meta {
+  color: #777;
+  font-size: 14px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.col-esquerda hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 16px 0 24px 0;
+}
+
+/* Citações */
+blockquote {
+  margin: 20px 0;
+  padding: 12px 18px;
+  background: #fbf7e9;
+  border-left: 4px solid #b89325;
+  font-style: italic;
+  color: #333;
+  border-radius: 4px;
+}
+
+/* Links internos e externos */
+.col-esquerda a {
+  color: #0b54d6;
+  text-decoration: none;
+  font-weight: 600;
+}
+.col-esquerda a:hover {
+  text-decoration: underline;
+}
+
+/* Imagens dentro do artigo */
+.col-esquerda img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+
+/* ===================== 3. COLUNA DIREITA ===================== */
+
+.col-direita {
+  padding: 24px 22px;
+  position: sticky;
+  top: 190px;   /* abaixo do cabeçalho fixo */
+  align-self: start;
+  height: fit-content;
+}
+
+.box {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  padding: 16px 18px;
+  margin-bottom: 22px;
+}
+
+.box h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 4px;
+  color: #444;
+  font-size: 16px;
+}
+
+.box p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.lista-link {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-link li {
+  margin: 8px 0;
+}
+
+.lista-link a {
+  color: #0b54d6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lista-link a:hover {
+  text-decoration: underline;
+}
+
+
+/* ===================== 4. ESTILOS DO ARTIGO ===================== */
+
+.artigo {
+  margin-top: 10px;
+}
+
+.artigo h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.artigo h3 {
+  font-size: 20px;
+  margin-top: 28px;
+}
+
+.artigo p {
+  text-align: justify;
+  margin-bottom: 1.2em;
+}
+
+.artigo strong {
+  color: #111;
+}
+
+.artigo em {
+  color: #444;
+  font-style: italic;
+}
+
+.artigo ul {
+  margin: 10px 0 10px 20px;
+  line-height: 1.7;
+}
+
+
+/* ===================== 5. BANNER E ELEMENTOS VISUAIS ===================== */
+
+.banner-capa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.banner-capa img {
+  max-width: 90%;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: block;
+}
+
+
+/* ===================== 6. SCROLLBAR (apenas desktop) ===================== */
+.col-esquerda::-webkit-scrollbar {
+  width: 8px;
+}
+.col-esquerda::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 4px;
+}
+.col-esquerda::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+
+/* ===================== 7. AJUSTES DE ESPAÇAMENTO ===================== */
+main.duas-colunas {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+
+/* ===================== 8. RESPONSIVIDADE ===================== */
+@media (max-width: 900px) {
+  .duas-colunas {
+    grid-template-columns: 1fr;
+  }
+
+  .col-esquerda {
+    padding: 24px 22px;
+  }
+
+  .col-direita {
+    position: relative;
+    top: 0;
+    margin-top: 24px;
+  }
+
+  .banner-capa img {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+/* ===================== 9. LEGENDAS DE IMAGEM ===================== */
+
+/* Contêiner da imagem com legenda */
+.figura {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 26px auto;
+  text-align: center;
+}
+
+.figura img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Legenda da imagem */
+.figcaption {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+  font-style: italic;
+  line-height: 1.4;
+  max-width: 85%;
+}
+
+/* Variante mais discreta (caso queira inserir imagens secundárias) */
+.figcaption.pequena {
+  font-size: 13px;
+  color: #777;
+  margin-top: 6px;
+}
+
+/* ===================== 10. FIGURA DUPLA (lado a lado) ===================== */
+
+.figura-dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+  margin: 26px auto;
+}
+
+.figura-dupla .fig-item {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 12px;
+  text-align: center;
+}
+
+.figura-dupla .fig-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+.figura-dupla .figcaption {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* variação com títulos curtos acima de cada imagem */
+.figura-dupla .fig-titulo {
+  font-weight: 700;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Responsivo: empilha no mobile */
+@media (max-width: 900px) {
+  .figura-dupla {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================== 11. ÍCONES SOCIAIS ===================== */
+
+.autor-redes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.autor-redes a svg {
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+.autor-redes a:hover svg {
+  transform: scale(1.15);
+  fill: #b89325; /* muda para dourado suave ao passar o mouse */
+}
+
+.autor-redes a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* ===================== HOME PAGE ===================== */
+
+.duas-colunas.home {
+  background: #f0f1f3; /* fundo geral mais suave */
+  border-radius: 8px;
+  padding: 24px;
+  gap: 32px;
+}
+
+/* Coluna esquerda — artigos em destaque */
+.col-esquerda {
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+/* Cartões de artigos */
+.card-artigo {
+  background: #f9fafb;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-artigo:hover {
+  background: #f4f6f9;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.card-artigo h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.card-artigo a {
+  color: #0b54d6;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.card-artigo a:hover {
+  color: #b89325;
+  text-decoration: underline;
+}
+
+.card-artigo p {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+}
+
+/* Coluna direita — mais lidos */
+.col-direita {
+  background: #f8f9fb;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.03);
+}
+
+.titulo-secao {
+  font-size: 20px;
+  margin-bottom: 14px;
+  color: #111;
+  border-bottom: 2px solid #b89325;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.lista-relacionados {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista-relacionados li {
+  margin: 8px 0;
+}
+
+.lista-relacionados a {
+  color: #0b54d6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lista-relacionados a:hover {
+  color: #b89325;
+  text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .duas-colunas.home {
+    grid-template-columns: 1fr;
+  }
+
+  .col-esquerda, .col-direita {
+    padding: 20px;
+  }
+}
+.colaboracoes {
+  margin-top: 40px;
+}
+.colaboracoes .descricao-secao {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+.colaboracoes .convite {
+  margin-top: 12px;
+  font-style: italic;
+  color: #666;
+}

@@ -1,0 +1,406 @@
+/* ===== BASE ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #222;
+  background: #f6f7f9;
+  line-height: 1.7;
+}
+a { color: #0b54d6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* =========================================================
+   GEOPOLÍTICA GLOBAL — main.css
+   ---------------------------------------------------------
+   Estrutura: 
+   1. Reset e base tipográfica
+   2. Cabeçalho fixo (título, autor, menu)
+   3. Layout principal
+   4. Rodapé
+   5. Responsividade
+   ========================================================= */
+
+/* ===================== 1. RESET E BASE ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  background-color: #f6f7f9;
+  color: #222;
+  line-height: 1.7;
+  margin: 0;
+  /* espaço reservado para o cabeçalho fixo */
+  margin-top: 190px;
+}
+
+a {
+  color: #0b54d6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===================== 2. CABEÇALHO FIXO ===================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Estrutura interna do cabeçalho */
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Marca e subtítulo */
+.brand h1 {
+  font-size: 28px;
+  letter-spacing: 0.5px;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.brand .sub {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Autor no topo */
+.autor-card {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+
+/* ===================== FOTO DO AUTOR ===================== */
+.autor-foto {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #b89325;
+
+  background-image: url("../imagens/autor/foto-santana.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.autor-nome {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.autor-bio {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* ===================== 3. MENU FIXO DENTRO DO HEADER ===================== */
+.menu-site {
+  border-top: 1px solid #e6e6e6;
+  background: #fff;
+}
+
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Links principais */
+.menu-links {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+
+.menu-links a {
+  display: inline-block;
+  padding: 14px 0;
+  color: #333;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  padding-bottom: 4px;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+/* Efeito ao passar o mouse */
+.menu a:hover {
+  color: #b89325;
+  border-bottom-color: #b89325;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.menu li a.ativo {
+  background-color: #b89325;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Efeito ao passar o mouse */
+.menu li a:hover {
+  background-color: #f0e5c3;
+  color: #b89325;
+}
+
+/* Item ativo (página atual) */
+.menu li a.ativo {
+  background-color: #b89325; /* fundo dourado */
+  color: #fff !important;   /* texto branco */
+  font-weight: 700;
+}
+
+/* Estado ativo (mantém o destaque após o clique) */
+.menu a.ativo {
+  color: #8a6a1d !important;
+  border-bottom-color: #8a6a1d !important;
+}
+
+
+/* Botão do menu mobile (hambúrguer) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #333;
+  position: absolute;
+  right: 20px;
+}
+
+/* ===================== 4. RODAPÉ ===================== */
+.site-footer {
+  text-align: center;
+  color: #666;
+  padding: 24px 12px;
+  border-top: 1px solid #e5e5e5;
+  background: #fff;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+/* ===================== 5. RESPONSIVIDADE ===================== */
+@media (max-width: 900px) {
+  /* reorganiza o topo */
+  .header-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  body {
+    margin-top: 260px; /* cabeçalho fica mais alto no mobile */
+  }
+
+  /* botão ☰ aparece */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* links colapsam */
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #eee;
+    margin-top: 8px;
+  }
+
+  /* quando abertos */
+  .menu-links.mostrar {
+    display: flex;
+  }
+
+  .menu-links li {
+    text-align: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}
+
+/* ===================== 12. RODAPÉ ===================== */
+.site-footer {
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.03);
+  padding: 40px 20px;
+  color: #444;
+  font-size: 14px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-col h3, .footer-col h4 {
+  color: #111;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.footer-col p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.footer-links, .footer-artigos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-artigos li {
+  margin-bottom: 8px;
+}
+
+.footer-links a,
+.footer-artigos a {
+  color: #0b54d6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-links a:hover,
+.footer-artigos a:hover {
+  color: #b89325;
+  text-decoration: underline;
+}
+
+.assinatura {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-col {
+    text-align: center;
+  }
+}
+.menu li a.ativo,
+.menu li a.ativo:visited,
+.menu li a.ativo:link {
+  background-color: #b89325 !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+/* ================================
+   ESTILO DO ITEM ATIVO DO MENU
+================================= */
+.menu a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+/* Linha dourada sob o item ativo */
+.menu a.ativo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 3px;
+  background-color: #b89325; /* cor dourada */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Cor do texto do ativo */
+.menu a.ativo {
+  color: #b89325 !important;
+}
+
+/* Efeito hover (mantém coerência com ativo) */
+.menu a:hover {
+  color: #b89325;
+}
+
+.menu a:hover::after {
+  background-color: #b89325;
+  height: 3px;
+}
